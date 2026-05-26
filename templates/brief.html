@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--
+  Miniclip UA Brief · HTML Pitch 模板
+  -----------------------------------
+  使用方式：
+  1. 把 {{GAME_NAME}} / {{GAME_NAME_EN}} / {{MONTH}} 等占位符替换成实际游戏名
+  2. 每条创意复制一个 .page 容器，修改 page-1 / page-2 ... 序号
+  3. data-editable="true" 的区块可以在页面里直接改字（点右上角"编辑文本"）
+  4. .img-placeholder 支持直接上传参考图
+  5. 右上角按钮：月份切换 / 中文 EN / 浅色深色 / 编辑 / 上传图 / 打印 PDF
+
+  配套文件：brief.css + brief.js（从本模板同目录拷贝）
+-->
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{GAME_NAME}} · {{MONTH}}创意Brief · 主题语言切换版</title>
+  <link rel="stylesheet" href="./brief.css">
+</head>
+<body data-lang="zh" data-theme="light">
+
+  <!-- 顶部工具栏 -->
+  <div class="wb-toolbar">
+    <div class="wb-left">
+      <div class="wb-brand">{{GAME_NAME_SHORT}} BRIEF</div>
+      <div class="wb-segment" aria-label="月份切换">
+        <button type="button" data-set-month="{{MONTH_KEY}}" class="is-active">{{MONTH}}</button>
+        <button type="button" data-set-month="{{NEXT_MONTH_KEY}}">{{NEXT_MONTH}}</button>
+      </div>
+      <div class="wb-segment" aria-label="语言切换">
+        <button type="button" data-set-lang="zh">中文</button>
+        <button type="button" data-set-lang="en">EN</button>
+      </div>
+      <div class="wb-segment" aria-label="主题切换">
+        <button type="button" data-set-theme="light">浅色</button>
+        <button type="button" data-set-theme="dark">深色</button>
+      </div>
+    </div>
+    <div class="wb-right">
+      <button class="wb-btn primary" id="wbEditBtn" type="button">编辑文本</button>
+      <button class="wb-btn" id="wbUploadBtn" type="button">上传图片</button>
+      <button class="wb-btn" id="wbExportBtn" type="button">打印 / 保存 PDF</button>
+      <div class="wb-status" id="wbStatus">加载中…</div>
+    </div>
+  </div>
+
+  <!-- ========== CONCEPT 01 ========== -->
+  <div class="page page-1" data-month="{{MONTH_KEY}}">
+    <div class="page-header">
+      <div>
+        <div class="page-number">CONCEPT 01 / 05</div>
+        <div class="page-title">
+          <div class="lang zh" data-editable="true">{{CONCEPT_1_TITLE_ZH}}</div>
+          <div class="lang en" data-editable="true">{{CONCEPT_1_TITLE_EN}}</div>
+        </div>
+        <div class="page-subtitle">
+          <div class="lang zh" data-editable="true">{{CONCEPT_1_SUBTITLE_ZH}}</div>
+          <div class="lang en" data-editable="true">{{CONCEPT_1_SUBTITLE_EN}}</div>
+        </div>
+      </div>
+      <div class="header-tags">
+        <span class="tag tag-r"><span class="inline-lang zh" data-editable="true">AI HOOK</span><span class="inline-lang en" data-editable="true">AI HOOK</span></span>
+        <span class="tag tag-g"><span class="inline-lang zh" data-editable="true">TAG 2</span><span class="inline-lang en" data-editable="true">TAG 2</span></span>
+        <span class="tag tag-y"><span class="inline-lang zh" data-editable="true">TAG 3</span><span class="inline-lang en" data-editable="true">TAG 3</span></span>
+        <span class="tag tag-p"><span class="inline-lang zh" data-editable="true">TAG 4</span><span class="inline-lang en" data-editable="true">TAG 4</span></span>
+      </div>
+    </div>
+
+    <div class="content-grid">
+      <div class="concept-block">
+        <h3><span class="lang zh" data-editable="true">参考画面</span><span class="lang en" data-editable="true">Visual Reference</span></h3>
+        <div class="img-placeholder">
+          <span class="icon">🖼️</span>
+          <div class="label">
+            <div class="lang zh" data-editable="true">参考图占位</div>
+            <div class="lang en" data-editable="true">Reference Placeholder</div>
+          </div>
+          <div class="hint">
+            <div class="lang zh" data-editable="true">可放 Hook 参考图 / Gameplay 截图 / 风格测试</div>
+            <div class="lang en" data-editable="true">Drop hook refs / gameplay shots / style tests</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="concept-block">
+        <h3><span class="lang zh" data-editable="true">创意核心</span><span class="lang en" data-editable="true">Creative Core</span></h3>
+        <p><span class="lang zh" data-editable="true">{{CONCEPT_1_CORE_ZH_P1}}</span><span class="lang en" data-editable="true">{{CONCEPT_1_CORE_EN_P1}}</span></p>
+        <p><span class="lang zh" data-editable="true">{{CONCEPT_1_CORE_ZH_P2}}</span><span class="lang en" data-editable="true">{{CONCEPT_1_CORE_EN_P2}}</span></p>
+      </div>
+
+      <div class="concept-block">
+        <h3><span class="lang zh" data-editable="true">分镜流程</span><span class="lang en" data-editable="true">Story Beats</span></h3>
+        <div class="scene-list">
+          <div class="scene-item"><div class="scene-text">
+            <div class="lang zh" data-editable="true"><strong>🔴 Hook</strong> —— [描述前 3 秒要发生什么]。</div>
+            <div class="lang en" data-editable="true"><strong>🔴 Hook</strong> — [Describe what happens in the first 3 seconds].</div>
+          </div></div>
+          <div class="scene-item"><div class="scene-text">
+            <div class="lang zh" data-editable="true"><strong>🔀 转场</strong> —— [Hook 到 Gameplay 的过渡方式]。</div>
+            <div class="lang en" data-editable="true"><strong>🔀 Transition</strong> — [How the hook transitions into gameplay].</div>
+          </div></div>
+          <div class="scene-item"><div class="scene-text">
+            <div class="lang zh" data-editable="true"><strong>🎮 Gameplay</strong> —— [实录段展示什么卖点]。</div>
+            <div class="lang en" data-editable="true"><strong>🎮 Gameplay</strong> — [What the gameplay footage showcases].</div>
+          </div></div>
+          <div class="scene-item"><div class="scene-text">
+            <div class="lang zh" data-editable="true"><strong>🏁 End Card</strong> —— 标准 5s。</div>
+            <div class="lang en" data-editable="true"><strong>🏁 End Card</strong> — Standard 5 seconds.</div>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="concept-block">
+        <h3><span class="lang zh" data-editable="true">制作要点</span><span class="lang en" data-editable="true">Production Notes</span></h3>
+        <p><span class="lang zh" data-editable="true">[要点 1：Hook 素材来源 / 风格选择]</span><span class="lang en" data-editable="true">[Note 1: hook source / style direction]</span></p>
+        <p><span class="lang zh" data-editable="true">[要点 2：转场的关键动作]</span><span class="lang en" data-editable="true">[Note 2: transition key beat]</span></p>
+        <p><span class="lang zh" data-editable="true">[要点 3：Gameplay 选段原则]</span><span class="lang en" data-editable="true">[Note 3: gameplay selection principle]</span></p>
+      </div>
+
+      <div class="concept-block full">
+        <div class="key-points">
+          <div class="key-point">
+            <span class="kp-label"><span class="inline-lang zh" data-editable="true">结构</span><span class="inline-lang en" data-editable="true">Flow</span></span>
+            <span class="kp-value"><span class="inline-lang zh" data-editable="true">Hook → 转场 → Gameplay → End Card</span><span class="inline-lang en" data-editable="true">Hook → Transition → Gameplay → End Card</span></span>
+          </div>
+          <div class="key-point">
+            <span class="kp-label"><span class="inline-lang zh" data-editable="true">Hook 核心</span><span class="inline-lang en" data-editable="true">Hook Core</span></span>
+            <span class="kp-value"><span class="inline-lang zh" data-editable="true">[一句话描述 Hook 点子]</span><span class="inline-lang en" data-editable="true">[One-liner hook idea]</span></span>
+          </div>
+          <div class="key-point">
+            <span class="kp-label"><span class="inline-lang zh" data-editable="true">方法论</span><span class="inline-lang en" data-editable="true">Methodology</span></span>
+            <span class="kp-value"><span class="inline-lang zh" data-editable="true">3C / 4 层 Hook / Fail-Upgrade-Win</span><span class="inline-lang en" data-editable="true">3C / 4-Layer Hook / Fail-Upgrade-Win</span></span>
+          </div>
+        </div>
+        <div class="note">
+          <div class="lang zh" data-editable="true">[作者批注：这条要和其他条区分的点 / 为什么这条会成]</div>
+          <div class="lang en" data-editable="true">[Author note: why this concept is different / why it'll work]</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span class="project"><span class="inline-lang zh" data-editable="true">{{GAME_NAME}} · {{MONTH}}创意 BRIEF</span><span class="inline-lang en" data-editable="true">{{GAME_NAME_EN}} · {{MONTH_EN}} BRIEF</span></span>
+      <span>1 / 5</span>
+    </div>
+  </div>
+
+  <!-- ========== CONCEPT 02 ==========
+       复制上面整个 .page 容器，改成 page-2，CONCEPT 02 / 05，2 / 5
+       修改标题 / 副标题 / tags / 内容
+  -->
+
+  <!-- ========== CONCEPT 03 ========== -->
+  <!-- ========== CONCEPT 04 ========== -->
+  <!-- ========== CONCEPT 05 ========== -->
+
+  <script src="./brief.js"></script>
+</body>
+</html>
